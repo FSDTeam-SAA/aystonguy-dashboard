@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
 
-function layout({children}: {children: React.ReactNode}) {
+function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className=''>
-        {children}
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/images/bg-image.jpg')", // 👉 public folder e image rakhbi
+      }}
+    >
+      {children}
     </div>
-  )
+  );
 }
 
-export default layout
+export default Layout;

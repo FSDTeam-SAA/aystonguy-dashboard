@@ -46,16 +46,16 @@ export default function Header() {
           onClick={toggleDropdown}
         >
           <span>{email}</span>
-          <div className="flex gap-3.5 items-center justify-center">
-            <div>
-              <Avatar className="h-8 w-8">
+          <div className="flex gap-2.5 items-center justify-center border border-[#00FFFF] px-2 py-1 rounded-2xl">
+            <div className="">
+              <Avatar className="h-8 w-8 ">
                 <AvatarImage src="/placeholder.svg?height=32&width=32" />
                 <AvatarFallback className="text-black">TA</AvatarFallback>
               </Avatar>
             </div>
             <div>
-              <p>Admin</p>
-              <p>Supper Admin</p>
+              <p className="text-[14px] text-white">Admin</p>
+              <p className="text-[12px] leading-[120%] text-[#8F8F8F]">Supper Admin</p>
             </div>
           </div>
         </div>
