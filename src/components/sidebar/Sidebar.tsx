@@ -14,14 +14,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Dashboard Overview", href: "/", icon: LayoutDashboard },
   {
-    name: "Requested delivary",
+    name: "Media Management",
     href: "/requested-delivary",
     icon: PackageOpen,
   },
   {
-    name: "My delivary",
+    name: "Categories Management",
     href: "/my-delivary",
     icon: TruckElectric,
   }
@@ -32,31 +32,14 @@ export function Sidebar() {
    const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex h-screen sticky bottom-0 top-0 w-[350px] flex-col bg-[#212121] z-50">
+    <div className="flex h-screen sticky bottom-0 top-0 w-[350px] flex-col bg-[#000000] z-50">
       {/* Logo */}
-      <div className="h-[80px] flex items-center justify-start ml-3">
-        <div className="text-2xl flex gap-1 font-bold text-blue-600 uppercase tracking-wider">
-          <div className="h-[50px] w-[50px]">
-            <Image
-              src="/images/dashboardLogo.gif"
-              alt=""
-              height={200}
-              width={200}
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-green-500">
-              T<span className="text-red-400">O</span>MAT
-              <span className="text-red-400">O</span>
-            </h1>
-            <p className="text-white text-[10px]">Tomaot.LID</p>
-          </div>
-        </div>
+      <div className="text-center border-b border-[#424242]">
+        <h1 className="text-[64px] text-[#00FFFF] uppercase font-bold ">AYESTON</h1>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-2 flex flex-col items-center justify-start px-3 overflow-y-auto mt-3">
+      <nav className="flex-1 space-y-3 flex flex-col items-center justify-start px-3 overflow-y-auto mt-5">
         {navigation.map((item) => {
           const isActive =
             pathname === item.href ||
@@ -67,10 +50,10 @@ export function Sidebar() {
               key={item.name}
               href={item.href}
               className={cn(
-                "flex w-[90%] mx-auto items-center justify-start gap-2 space-y-1 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
+                "flex w-full mx-auto items-center justify-start gap-2 space-y-1 rounded-[4px] px-3 py-3 text-sm font-bold transition-all duration-200",
                 isActive
-                  ? "bg-white text-black"
-                  : "text-slate-300 hover:bg-slate-600/50 hover:text-white"
+                  ? "bg-[#00FFFF] text-black"
+                  : "text-slate-300 hover:bg-[#00FFFF] hover:text-black"
               )}
             >
               <item.icon
@@ -81,8 +64,8 @@ export function Sidebar() {
               />
               <span
                 className={cn(
-                  "font-normal text-base leading-[120%] transition-colors duration-200 text-center",
-                  isActive ? "text-black font-medium" : ""
+                  "font-semibold text-base leading-[120%] transition-colors duration-200 text-center",
+                  isActive ? "text-black font-semibold" : ""
                 )}
               >
                 {item.name}

@@ -9,11 +9,9 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const avatarRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
-    const user = session?.user as any;
-    const email = user?.email;
-    console.log(session)
-
-    
+  const user = session?.user as any;
+  const email = user?.email;
+  console.log(session);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -38,7 +36,7 @@ export default function Header() {
     setIsDropdownOpen(!isDropdownOpen);
   };
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex h-[80px] items-center justify-between px-6 bg-[#212121] shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-50 flex h-[80px] items-center justify-between px-6 bg-[#000000] shadow-md">
       <div className="flex items-center space-x-2"></div>
 
       <div className="relative flex items-center space-x-3">
@@ -48,10 +46,18 @@ export default function Header() {
           onClick={toggleDropdown}
         >
           <span>{email}</span>
-          <Avatar className="h-8 w-8">
-            <AvatarImage src="/placeholder.svg?height=32&width=32" />
-            <AvatarFallback className="text-black">TA</AvatarFallback>
-          </Avatar>
+          <div className="flex gap-3.5 items-center justify-center">
+            <div>
+              <Avatar className="h-8 w-8">
+                <AvatarImage src="/placeholder.svg?height=32&width=32" />
+                <AvatarFallback className="text-black">TA</AvatarFallback>
+              </Avatar>
+            </div>
+            <div>
+              <p>Admin</p>
+              <p>Supper Admin</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
