@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Lock, Eye, EyeOff } from "lucide-react";
 
-export function SignInForm() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(false);
+export function ResetPasswordForm() {
+  const [showNew, setShowNew] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 shadow-[0px_0px_50.3px_0px_#39EFE1]">
-      {/* Card with 1px #00FFFF border */}
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div
         style={{
           border: "1px solid #00FFFF",
@@ -33,34 +32,18 @@ export function SignInForm() {
 
           {/* Subtitle */}
           <p className="text-center text-white text-[16px] mb-6 tracking-wide">
-            Login to Your Account
+            Reset Password
           </p>
 
-          {/* Email */}
+          {/* New Password */}
           <label className="text-[#aaa] text-[11px] tracking-widest uppercase mb-1.5 block">
-            Enter your email
+            Enter New Password
           </label>
           <div className="relative mb-4">
-            <Mail size={15} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#00FFFF" }} />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full bg-[#111] border border-[#222] rounded-lg py-3 pl-9 pr-3 text-[#888] text-sm outline-none transition-colors"
-              style={{ fontFamily: "var(--font-oswald)" }}
-              onFocus={e => e.target.style.borderColor = "#00FFFF"}
-              onBlur={e => e.target.style.borderColor = "#222"}
-            />
-          </div>
-
-          {/* Password */}
-          <label className="text-[#aaa] text-[11px] tracking-widest uppercase mb-1.5 block">
-            Enter your Password
-          </label>
-          <div className="relative mb-5">
             <Lock size={15} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#00FFFF" }} />
             <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
+              type={showNew ? "text" : "password"}
+              placeholder="New Password"
               className="w-full bg-[#111] border border-[#222] rounded-lg py-3 pl-9 pr-10 text-[#888] text-sm outline-none transition-colors"
               style={{ fontFamily: "var(--font-oswald)" }}
               onFocus={e => e.target.style.borderColor = "#00FFFF"}
@@ -68,50 +51,54 @@ export function SignInForm() {
             />
             <button
               type="button"
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowNew(!showNew)}
               className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
               style={{ color: "#555" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#00FFFF")}
               onMouseLeave={e => (e.currentTarget.style.color = "#555")}
             >
-              {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+              {showNew ? <Eye size={16} /> : <EyeOff size={16} />}
             </button>
           </div>
 
-          {/* Remember & Forgot */}
-          <div className="flex items-center justify-between mb-6">
+          {/* Confirm Password */}
+          <label className="text-[#aaa] text-[11px] tracking-widest uppercase mb-1.5 block">
+            Enter Confirm Password
+          </label>
+          <div className="relative mb-6">
+            <Lock size={15} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#00FFFF" }} />
+            <input
+              type={showConfirm ? "text" : "password"}
+              placeholder="Confirm Password"
+              className="w-full bg-[#111] border border-[#222] rounded-lg py-3 pl-9 pr-10 text-[#888] text-sm outline-none transition-colors"
+              style={{ fontFamily: "var(--font-oswald)" }}
+              onFocus={e => e.target.style.borderColor = "#00FFFF"}
+              onBlur={e => e.target.style.borderColor = "#222"}
+            />
             <button
               type="button"
-              onClick={() => setRemember(!remember)}
-              className="flex items-center gap-2"
+              onClick={() => setShowConfirm(!showConfirm)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
+              style={{ color: "#555" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#00FFFF")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#555")}
             >
-              <div
-                className="w-4 h-4 border rounded-sm transition-colors"
-                style={{
-                  backgroundColor: remember ? "#00FFFF" : "transparent",
-                  borderColor: remember ? "#00FFFF" : "#444",
-                }}
-              />
-              <span className="text-[#aaa] text-sm">Remember me</span>
+              {showConfirm ? <Eye size={16} /> : <EyeOff size={16} />}
             </button>
-            <a href="#" style={{ color: "#00FFFF" }} className="text-sm hover:underline">
-              Forgot Password?
-            </a>
           </div>
 
-          {/* Login Button */}
+          {/* Continue Button */}
           <button
             type="button"
             className="w-full text-black font-semibold text-base tracking-widest rounded-lg py-3 transition-all active:scale-[0.98]"
             style={{
               backgroundColor: "#00FFFF",
               fontFamily: "var(--font-oswald)",
-              boxShadow: "0 0 0 rgba(0,255,255,0)",
             }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(0,255,255,0.5)")}
-            onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 0 rgba(0,255,255,0)")}
+            onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}
           >
-            Login
+            Continue
           </button>
 
         </div>
@@ -120,4 +107,4 @@ export function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default ResetPasswordForm;
