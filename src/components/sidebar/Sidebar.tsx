@@ -4,21 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
+  Clapperboard,
   LayoutDashboard,
   LogOut,
-  PackageOpen,
   TruckElectric,
 } from "lucide-react";
-import Image from "next/image";
-// import { LogoutModal } from "../modal/Logout";
 import { useState } from "react";
 
 const navigation = [
   { name: "Dashboard Overview", href: "/", icon: LayoutDashboard },
   {
     name: "Media Management",
-    href: "/requested-delivary",
-    icon: PackageOpen,
+    href: "/media-management",
+    icon: Clapperboard,
   },
   {
     name: "Categories Management",
@@ -29,10 +27,10 @@ const navigation = [
 
 export function Sidebar() {
   const pathname = usePathname();
-   const [open, setOpen] = useState(false);
+   const [, setOpen] = useState(false);
 
   return (
-    <div className="flex h-screen sticky bottom-0 top-0 w-[350px] flex-col bg-[#000000] z-50">
+    <div className="flex h-screen sticky bottom-0 top-0 w-[350px] flex-col bg-[#000000] z-50 border border-[#00E5CC]/20 shadow-[0px_0px_5px_0px_#00E5CC_inset]">
       {/* Logo */}
       <div className="text-center border-b border-[#424242]">
         <h1 className="text-[64px] text-[#00FFFF] uppercase font-bold ">AYESTON</h1>

@@ -36,7 +36,7 @@ export default function Header() {
     setIsDropdownOpen(!isDropdownOpen);
   };
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex h-[80px] items-center justify-between px-6 bg-[#000000] shadow-md">
+    <div className="fixed top-0 left-0 right-0 flex h-[80px] items-center justify-between px-6 bg-[#000000] z-50 border border-[#00E5CC]/20 shadow-[0px_0px_5px_0px_#00E5CC_inset]">
       <div className="flex items-center space-x-2"></div>
 
       <div className="relative flex items-center space-x-3">

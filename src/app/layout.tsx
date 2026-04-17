@@ -35,6 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased`}
         style={{ fontFamily: "var(--font-oswald), sans-serif" }}
       >
+        
         <AppProvider>{children}</AppProvider>
       </body>
     </html>
